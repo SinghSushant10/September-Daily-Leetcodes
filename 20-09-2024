@@ -1,0 +1,33 @@
+#214. Shortest Palindrome
+class Solution {
+    public String shortestPalindrome(String s) {
+        if(s.length() == 0)
+            return "";
+
+        int n = s.length();
+        int i = n-1;
+        for(;i>=0;i--){
+            int start = 0;
+            int end = i;
+            while(s.charAt(start) == s.charAt(end)){
+                start++;
+                end--;
+
+                if(start >= end)
+                    break;
+            }
+            if(start >= end)
+                break;
+        }
+
+        String result = "";
+        i++;
+        while(i<n){
+            char ch = s.charAt(i);
+            result = ch + result;
+            i++;
+        }
+
+        return result + s;
+    }
+}
